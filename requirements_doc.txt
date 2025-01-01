@@ -1,6 +1,6 @@
 bokeh
 jupyter-sphinx
-pydata-sphinx-theme==0.16.0
+pydata-sphinx-theme==0.16.1
 sphinx==7.3.7
 sphinx-copybutton
 sphinx-notfound-page
