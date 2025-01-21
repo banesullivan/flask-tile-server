@@ -11,7 +11,8 @@ For more information, please see https://github.com/jupyter-widgets/ipyleaflet/i
 
 .. jupyter-execute::
 
-  from localtileserver import get_leaflet_tile_layer, examples
+  import localtileserver as lts
+  from localtileserver import examples
   from ipyleaflet import Map, TileLayer
 
   # Load high res raster
@@ -20,7 +21,7 @@ For more information, please see https://github.com/jupyter-widgets/ipyleaflet/i
   max_zoom = 30
 
   # Create zoomable tile layer from high res raster
-  layer = get_leaflet_tile_layer(client,
+  layer = lts.get_leaflet_tile_layer(client,
       # extra kwargs to pass to the TileLayer
       max_zoom=max_zoom,
       max_native_zoom=max_zoom,

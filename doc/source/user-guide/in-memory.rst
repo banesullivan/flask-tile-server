@@ -4,8 +4,8 @@
 .. jupyter-execute::
 
     import rasterio
+    import localtileserver as lts
     from ipyleaflet import Map
-    from localtileserver import TileClient, get_leaflet_tile_layer
 
     # Open a rasterio dataset
     dataset = rasterio.open('https://open.gishub.org/data/raster/srtm90.tif')
@@ -34,5 +34,5 @@
 
 .. jupyter-execute::
 
-    client = TileClient(raster_dataset)
+    client = lts.TileClient(raster_dataset)
     client.thumbnail(colormap="terrain")

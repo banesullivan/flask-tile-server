@@ -6,7 +6,7 @@
   from bokeh.plotting import figure, output_file, show
   from bokeh.io import output_notebook
   from bokeh.models import WMTSTileSource
-  from localtileserver import TileClient, examples
+  from localtileserver import examples
 
   output_notebook()
 

@@ -10,7 +10,8 @@ viewing a different set of bands:
 
 .. jupyter-execute::
 
-  from localtileserver import get_leaflet_tile_layer, examples
+  import localtileserver as lts
+  from localtileserver import examples
   from ipyleaflet import Map, ScaleControl, FullScreenControl, SplitMapControl
 
   # First, create TileClient using example file
@@ -30,8 +31,8 @@ viewing a different set of bands:
 .. jupyter-execute::
 
   # Create 2 tile layers from same raster viewing different bands
-  l = get_leaflet_tile_layer(client, indexes=[7, 5, 4])
-  r = get_leaflet_tile_layer(client, indexes=[5, 3, 2])
+  l = lts.get_leaflet_tile_layer(client, indexes=[7, 5, 4])
+  r = lts.get_leaflet_tile_layer(client, indexes=[5, 3, 2])
 
   # Make the ipyleaflet map
   m = Map(center=client.center(), zoom=client.default_zoom)

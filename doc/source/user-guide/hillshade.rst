@@ -16,7 +16,7 @@ make the data appear more 3-Dimensional.
 
 .. code:: python
 
-  from localtileserver import TileClient, get_leaflet_tile_layer
+  import localtileserver as lts
   from localtileserver import examples, helpers
   from ipyleaflet import Map, SplitMapControl
   import rasterio
@@ -24,7 +24,7 @@ make the data appear more 3-Dimensional.
   # Example DEM dataset
   client = examples.get_co_elevation()
 
-  tdem = get_leaflet_tile_layer(client, colormap='gist_earth', nodata=0)
+  tdem = lts.get_leaflet_tile_layer(client, colormap='gist_earth', nodata=0)
 
   m = client.get_leaflet_map()
   m.add(tdem)
@@ -58,7 +58,7 @@ function (adopted from EarthPy).
 .. code:: python
 
   # Make an ipyleaflet tile layer of the hillshade
-  hst = get_leaflet_tile_layer(hs, nodata=0)
+  hst = lts.get_leaflet_tile_layer(hs, nodata=0)
 
   m = client.get_leaflet_map()
   control = SplitMapControl(left_layer=tdem, right_layer=hst)
@@ -75,7 +75,7 @@ effect:
 
   m = client.get_leaflet_map()
   m.add(tdem)
-  m.add(get_leaflet_tile_layer(hs, opacity=0.5, nodata=0))
+  m.add(lts.get_leaflet_tile_layer(hs, opacity=0.5, nodata=0))
   m
 
 

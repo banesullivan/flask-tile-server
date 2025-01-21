@@ -35,14 +35,14 @@ The following is a minimal example to visualize a local raster file with
 `ipyleaflet`:
 
 ```py
-from localtileserver import get_leaflet_tile_layer, TileClient
+import localtileserver as lts
 from ipyleaflet import Map
 
 # First, create a tile server from local raster file
-client = TileClient('path/to/geo.tif')
+client = lts.open('path/to/geo.tif')
 
 # Create ipyleaflet tile layer from that server
-t = get_leaflet_tile_layer(client)
+t = lts.get_leaflet_tile_layer(client)
 
 m = Map(center=client.center(), zoom=client.default_zoom)
 m.add(t)
@@ -95,6 +95,6 @@ If you would like to report any bugs or make feature requests, please open an is
 If filing a bug report, please share a scooby `Report`:
 
 ```py
-import localtileserver
-print(localtileserver.Report())
+import localtileserver as lts
+print(lts.Report())
 ```

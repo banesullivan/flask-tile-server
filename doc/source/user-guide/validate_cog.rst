@@ -12,22 +12,23 @@ You can use the script by:
 
 .. jupyter-execute::
 
-   from localtileserver import validate_cog
+   import localtileserver as lts
 
    # Path to raster (URL or local path)
    url = 'https://github.com/giswqs/data/raw/main/raster/landsat7.tif'
 
    # If invalid, returns False
-   validate_cog(url)
+   lts.validate_cog(url)
 
 
 This can also be used with an existing :class:`localtileserver.TileClient`:
 
 .. jupyter-execute::
 
-   from localtileserver import examples, validate_cog
+   import localtileserver as lts
+   from localtileserver import examples
 
    client = examples.get_san_francisco()
 
    # If invalid, returns False
-   validate_cog(client)
+   lts.validate_cog(client)

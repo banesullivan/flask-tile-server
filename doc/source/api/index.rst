@@ -5,6 +5,8 @@
 Python Client
 -------------
 
+.. autofunction:: localtileserver.open
+
 .. autofunction:: localtileserver.get_or_create_tile_client
 
 

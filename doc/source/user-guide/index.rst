@@ -30,9 +30,10 @@ Here is the "one-liner" to visualize a large geospatial image with
 
 .. jupyter-execute::
 
-  from localtileserver import TileClient, examples
+  import localtileserver as lts
+  from localtileserver import examples
 
-  # client = TileClient('path/to/geo.tif')
+  # client = lts.open('path/to/geo.tif')
   client = examples.get_san_francisco()  # use example data
   client
 
@@ -67,17 +68,18 @@ a Jupyter notebook. Here is an example:
 
 .. jupyter-execute::
 
-  from localtileserver import get_leaflet_tile_layer, TileClient, examples
+  import localtileserver as lts
+  from localtileserver import examples
   from ipyleaflet import Map
 
   # First, create a tile server from local raster file
-  # client = TileClient('path/to/geo.tif')
+  # client = lts.open('path/to/geo.tif')
   client = examples.get_elevation()  # use example data
 
   # Create ipyleaflet tile layer from that server
-  t = get_leaflet_tile_layer(client,
-                             indexes=1, vmin=-5000, vmax=5000,
-                             opacity=0.65)
+  t = lts.get_leaflet_tile_layer(client,
+                                 indexes=1, vmin=-5000, vmax=5000,
+                                 opacity=0.65)
 
   # Create ipyleaflet map, add tile layer, and display
   m = Map(zoom=3)
@@ -97,15 +99,16 @@ code as the ``ipyleaflet`` example, just note that :class:`folium.Map` is import
 
 .. jupyter-execute::
 
-  from localtileserver import get_folium_tile_layer, TileClient, examples
+  import localtileserver as lts
+  from localtileserver import examples
   from folium import Map
 
   # First, create a tile server from local raster file
-  # client = TileClient('path/to/geo.tif')
+  # client = lts.open('path/to/geo.tif')
   client = examples.get_oam2()  # use example data
 
   # Create folium tile layer from that server
-  t = get_folium_tile_layer(client)
+  t = lts.get_folium_tile_layer(client)
 
   m = Map(location=client.center(), zoom_start=16)
   m.add_child(t)
@@ -131,5 +134,5 @@ If filing a bug report, please share a scooby ``Report``:
 
 .. code:: python
 
-  import localtileserver
-  print(localtileserver.Report())
+  import localtileserver as lts
+  print(lts.Report())

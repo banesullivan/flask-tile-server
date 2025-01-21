@@ -13,14 +13,13 @@ we can view tiles of the remote file very efficiently in a Jupyter notebook.
 
 .. jupyter-execute::
 
-  from localtileserver import get_folium_tile_layer, get_leaflet_tile_layer
-  from localtileserver import TileClient
+  import localtileserver as lts
   import folium, ipyleaflet
 
   url = 'https://github.com/giswqs/data/raw/main/raster/landsat7.tif'
 
   # First, create a tile server from the URL raster file
-  client = TileClient(url)
+  client = lts.open(url)
 
 
 Here we can create a folium map with the raster overlain:
@@ -28,7 +27,7 @@ Here we can create a folium map with the raster overlain:
 .. jupyter-execute::
 
   # Create folium tile layer from that server
-  t = get_folium_tile_layer(client)
+  t = lts.get_folium_tile_layer(client)
 
   m = folium.Map(location=client.center(), zoom_start=client.default_zoom)
   m.add_child(t)
@@ -40,7 +39,7 @@ Or we can do the same ipyleaflet:
 .. jupyter-execute::
 
   # Create ipyleaflet tile layer from that server
-  l = get_leaflet_tile_layer(client)
+  l = lts.get_leaflet_tile_layer(client)
 
   m = ipyleaflet.Map(center=client.center(), zoom=client.default_zoom)
   m.add(l)

@@ -3,19 +3,19 @@
 
 .. jupyter-execute::
 
-  from localtileserver import TileClient, get_leaflet_tile_layer
+  import localtileserver as lts
   from ipyleaflet import Map, ScaleControl, FullScreenControl, SplitMapControl
 
   # Create tile servers from two raster files
-  l_client = TileClient('https://www.dropbox.com/s/ffdmncjaj82hf6f/L5039035_03520060512_B30.TIF?dl=0')
-  r_client = TileClient('https://www.dropbox.com/s/ysxscp059rtrw0d/L5039035_03520060512_B70.TIF?dl=0')
+  l_client = lts.open('https://www.dropbox.com/s/ffdmncjaj82hf6f/L5039035_03520060512_B30.TIF?dl=0')
+  r_client = lts.open('https://www.dropbox.com/s/ysxscp059rtrw0d/L5039035_03520060512_B70.TIF?dl=0')
 
   # Shared display parameters
   display = dict(vmin=50, vmax=150, colormap='coolwarm')
 
   # Create 2 tile layers from different raster
-  l = get_leaflet_tile_layer(l_client, **display)
-  r = get_leaflet_tile_layer(r_client, **display)
+  l = lts.get_leaflet_tile_layer(l_client, **display)
+  r = lts.get_leaflet_tile_layer(r_client, **display)
 
   # Make the ipyleaflet map
   m = Map(center=l_client.center(), zoom=l_client.default_zoom)

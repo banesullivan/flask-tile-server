@@ -9,14 +9,14 @@ This will only work when opening a raster in read-mode.
 .. code-block:: python
 
     import rasterio
+    import localtileserver as lts
     from ipyleaflet import Map
-    from localtileserver import TileClient, get_leaflet_tile_layer
 
     src = rasterio.open('path/to/geo.tif')
 
-    client = TileClient(src)
+    client = lts.TileClient(src)
 
-    t = get_leaflet_tile_layer(client)
+    t = lts.get_leaflet_tile_layer(client)
 
     m = Map(center=client.center(), zoom=client.default_zoom)
     m.add(t)
