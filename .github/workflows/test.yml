@@ -37,7 +37,7 @@ jobs:
       #   run: |
       #     make doctest
       - name: Stash coverage
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: coverage.xml
           path: coverage.xml

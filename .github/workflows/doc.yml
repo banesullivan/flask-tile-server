@@ -30,7 +30,7 @@ jobs:
         working-directory: doc
         run: make html
       - name: Stash build
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: doc-build
           path: doc/build
